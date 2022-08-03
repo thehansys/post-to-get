@@ -1,8 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {useEffect} from "react";
+import {prefetch} from "@layer0/prefetch/window";
 
 export default function Home() {
+
+  // Prefetch test
+  useEffect(() => {
+    prefetch("/post","object",  {
+      body : JSON.stringify({
+        token : "something"
+      }),
+      method : "post"
+    })
+  }, [])
+
 
   return (
     <div className={styles.container}>
