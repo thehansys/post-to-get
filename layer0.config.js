@@ -11,10 +11,11 @@ module.exports = {
   // team: 'my-team-name',
 
   backends: {
-    localhostProxy : {
-      domainOrIp: '127.0.0.1',
+    postProxy : {
+      domainOrIp: 'httpbin.org',
+      hostHeader: 'httpbin.org',
       disableCheckCert: true,
-      port : 3000
+      port : 443
     },
     googleProxy: {
       // The domain name or IP address of the origin server

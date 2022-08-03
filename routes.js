@@ -14,22 +14,6 @@ module.exports = new Router()
         return serviceWorker('.next/static/service-worker.js')
     })
 
-    .post('/post', (res) => {
-        res.setResponseHeader('content-type', 'application/json');
-        res.compute(async (request, response) => {
-            return res.send(JSON.stringify({
-                method : request.method,
-                body : request.body,
-                query : request.query,
-                path : request.path,
-                params : request.params,
-                url : request.url,
-                message : "This POST response"
-            }), 200, 'OK')
-        })
-    })
-
-
     .get('/post', (res) => {
         res.cache({
             edge: {
@@ -41,7 +25,7 @@ module.exports = new Router()
                 convertToGet: true // convert POSTs to GETs so we can prefetch and cache them
             }
         })
-        res.proxy('localhostProxy', {
+        res.proxy('postProxy', {
             transformRequest: transformMethod('post')
         })
     })
