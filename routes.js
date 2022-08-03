@@ -15,6 +15,7 @@ module.exports = new Router()
     })
 
     .get('/post', (res) => {
+        res.setResponseHeader("Cache-Control","public, max-age=604800")
         res.cache({
             edge: {
                 maxAgeSeconds: 60 * 60 * 24,
