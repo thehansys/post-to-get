@@ -34,7 +34,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Version: 4.17.1-next-1659364122-5e850cae4.0
         </h1>
 
         <p className={styles.description}>
