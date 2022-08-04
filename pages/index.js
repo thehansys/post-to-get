@@ -8,7 +8,19 @@ export default function Home() {
 
   // Prefetch test
   useEffect(() => {
-    prefetch("/post")
+    try{
+      prefetch("/post");
+      /*
+      prefetch("/post", "object", {
+        method : "post",
+        body : JSON.stringify({
+          token : "content"
+        })
+      });
+      */
+    }catch(e){
+      console.log(e.message);
+    }
   }, [])
 
 
